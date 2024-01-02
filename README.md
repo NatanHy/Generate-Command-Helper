@@ -3,7 +3,7 @@
 ### Description
 This is a tool for creating FAWE generate and deform commands. The tool provides a user-friendly UI for writing, editing, and saving commands. 
 
-#### Table of Contents  
+### Table of Contents  
 [Usage](#usage)  
 [Syntax](#syntax)  
 
