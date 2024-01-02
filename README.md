@@ -6,6 +6,7 @@ This is a tool for creating FAWE generate and deform commands. The tool provides
 ### Table of Contents  
 [Usage](#usage)  
 [Syntax](#syntax)  
+[References](#references)
 
 ### Usage
 Running the `main.py` file should open a GUI that looks like this
