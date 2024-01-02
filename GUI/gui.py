@@ -65,7 +65,7 @@ class App(customtkinter.CTk):
         self.output_textbox = customtkinter.CTkTextbox(self, width=250, font=MONOSPACE)
 
         # create scrollable frames
-        self.const_frame = customtkinter.CTkScrollableFrame(self, label_text="CTkScrollableFrame")
+        self.const_frame = customtkinter.CTkScrollableFrame(self, label_text="Program Constants")
 
         self.variable_fields = {}
 
