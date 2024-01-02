@@ -45,6 +45,14 @@ class AppFunctions:
         cls.app.output_textbox.delete("0.0", "end")
         cls.app.output_textbox.insert("0.0", command)
 
+        if len(command) > 256:
+            cls.app.output_textbox.insert("end", "\n")
+            cls.app.output_textbox.tag_add("make_grey","1.256" ,f"1.{len(command)}")
+            cls.app.output_textbox.tag_config("make_grey", foreground="grey")
+            cls.app.output_textbox.tag_add("warning", f"1.{len(command)}", "end")
+            cls.app.output_textbox.tag_config("warning", foreground="red")
+            cls.app.output_textbox.insert("end", "WARNING! command is longer than 256 characters")
+
     @classmethod
     def init_consts(cls):
         consts = cls.template.info.constants
