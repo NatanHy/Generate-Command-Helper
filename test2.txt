@@ -1,0 +1,9 @@
+//g -r 1
+
+CONST_1=100;
+CONST_2=2000;
+
+var1=CONST_1+CONST_2;
+
+if(var1+x<CONST_1){return(0)}
+1;

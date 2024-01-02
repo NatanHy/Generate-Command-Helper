@@ -1,0 +1,36 @@
+//deform -r
+
+PALETTE_MIN_X = 0;
+PALETTE_Y_LEVEL = 0;
+PALETTE_Z_LEVEL = 0;
+SIZE_OF_PALETTE = 0;
+
+if(queryAbs(x, y, z, 0, 0)) {
+    return(0)
+    }
+
+norm_x = 0;
+norm_y = 0;
+norm_z = 0;
+
+for(i=-1; i<2; i++) {
+    for(j=-1; j<2; j++) {
+        for(k=-1; k<2; k++) {
+            if(queryAbs(x+i, y+j, z+k, 0, 0)) {
+                norm_x += i;
+                norm_y += j;
+                norm_z += k;
+                }
+            }
+        }
+    }
+
+d = sqrt(norm_x*norm_x + norm_y*norm_y + norm_z*norm_z);
+norm_x /= d;
+norm_y /= d;
+norm_z /= d;
+v = 0.707*norm_x +0.707*norm_y+ 0*norm_z;
+x = PALETTE_MIN_X + (v+1) / 2 * SIZE_OF_PALETTE;
+y = PALETTE_Y_LEVEL;
+z = PALETTE_Z_LEVEL;
+1;
