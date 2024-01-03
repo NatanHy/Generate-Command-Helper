@@ -2,7 +2,7 @@ from command_creation.command_template import CommandTemplate
 from command_creation.command_tokens import *
 from string import ascii_letters
 
-RESERVED_VAR_NAMES = ["x", "y", "z", "type", "data"]
+RESERVED_VAR_NAMES = ["x", "y", "z", "e", "type", "data"]
 POSSIBLE_VAR_NAMES = [letter for letter in ascii_letters if letter not in RESERVED_VAR_NAMES]
 
 class CommandGenerator:
@@ -35,6 +35,9 @@ class CommandGenerator:
         num_of_replaced_vars = 0
 
         for var in variables:
+            if var.name in RESERVED_VAR_NAMES:
+                self._var_mapping[var.name] = var.name
+                continue
             if len(var.name) > 1:
                 if var.name not in self._var_mapping:
                     self._var_mapping[var.name] = valid_var_names[num_of_replaced_vars]

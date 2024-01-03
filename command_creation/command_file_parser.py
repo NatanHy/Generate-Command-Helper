@@ -1,7 +1,7 @@
 from command_creation.command_template import CommandTemplate
 from command_creation.command_tokens import CommandVariable, CommandConstant
 
-ALLOWED_VAR_SYMBOLS = ["_", "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+ALLOWED_VAR_SYMBOLS = ["_", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 EXPRESSION_END_SYMBOLS = [";", "}"]
 
 class CommandParser:
@@ -23,8 +23,10 @@ class CommandParser:
                 command_template.set_command(line.strip() + " ")
                 first_line = False
                 continue
+
+            stripped_line = line.strip().replace(" ", "")
             
-            for ch in line.strip().replace(" ", ""):
+            for ch in stripped_line:
                 #If looking for value of const, only stop at expression ending symbols (ex. ;)
                 if look_for_const_value:
                     if ch in EXPRESSION_END_SYMBOLS:
@@ -41,10 +43,10 @@ class CommandParser:
                         current_token += ch
                 #Else stop at all non-variable symbols
                 elif not is_var_str(ch):
-                    if ch == "=": #Variable is being assigned
+                    if ch == "=": #Variable possibly being assigned
                         if len(current_token) == 0:
                             #Case where previous character is special (ex. +=)
-                            command_template.add_str(ch)
+                            command_template.add_str(current_token + ch)
                             continue
 
                         if token_is_const:
