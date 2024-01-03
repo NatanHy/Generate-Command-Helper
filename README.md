@@ -9,6 +9,13 @@ This is a tool for creating FAWE generate and deform commands. The tool provides
 [References](#references)
 
 ### Usage
+
+Before running the code, make sure you have the following dependencies installed:
+* tkinter
+* customtkinter
+
+These can be installed with `pip install tkinter` and `pip install customtkinter`
+
 Running the `main.py` file should open a GUI that looks like this
 
 ![Generator GUI](images/generator_gui.png)

@@ -1,5 +1,4 @@
 import customtkinter
-import tkinter
 from GUI.fonts import MONOSPACE
 
 class VariableInputField:
